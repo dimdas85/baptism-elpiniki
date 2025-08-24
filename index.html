@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Η Βάφτιση της Ελπινίκης</title>
 <style>
   body {
     margin: 0;
-    font-family: 'Comic Sans MS', Arial, sans-serif;
+    font-family: 'Noto Serif', 'Times New Roman', serif;
     background: linear-gradient(to bottom, #d4fcd4, #fdf7e3); /* ίδιο φόντο με το header */
     color: #2a7b2a;
     text-align: center;
@@ -21,16 +22,17 @@
   }
   h1, h2, p, #countdown span {
     color: #2a7b2a;
-    font-family: 'Comic Sans MS', cursive;
+    font-family: 'Noto Serif', 'Times New Roman', serif;
     margin: 10px 0;
   }
   h1 { font-size: 3em; }
   h2 { font-size: 2em; }
   p { font-size: 1.3em; }
+	
  #countdown {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* επιτρέπει να πάνε σε 2η γραμμή αν δε χωράνε */
+  flex-wrap: wrap; /* επιτρέπει να πάνε σε 2η γραμμή */
   gap: 20px;
   font-size: 2em;
   margin-top: 30px;
@@ -40,13 +42,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 70px; /* για να μην κολλάνε μεταξύ τους */
+  min-width: 80px;
 }
 
-@media (max-width: 600px) {
+/* Όταν η οθόνη είναι κάτω από 500px (π.χ. κινητά) */
+@media (max-width: 500px) {
   #countdown {
-    font-size: 1.5em; /* μικραίνει λίγο το μέγεθος στα κινητά */
-    gap: 15px;
+    font-size: 1.2em; /* μικραίνει λίγο τα νούμερα */
+    gap: 10px;
+  }
+  #countdown div {
+    flex: 1 1 40%; /* βάζει 2 κουτάκια σε κάθε σειρά */
   }
 }
   #countdown span:last-child {

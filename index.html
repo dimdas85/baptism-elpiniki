@@ -27,18 +27,28 @@
   h1 { font-size: 3em; }
   h2 { font-size: 2em; }
   p { font-size: 1.3em; }
+ #countdown {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* επιτρέπει να πάνε σε 2η γραμμή αν δε χωράνε */
+  gap: 20px;
+  font-size: 2em;
+  margin-top: 30px;
+}
+
+#countdown div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px; /* για να μην κολλάνε μεταξύ τους */
+}
+
+@media (max-width: 600px) {
   #countdown {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    font-size: 2.5em;
-    margin-top: 30px;
+    font-size: 1.5em; /* μικραίνει λίγο το μέγεθος στα κινητά */
+    gap: 15px;
   }
-  #countdown div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+}
   #countdown span:last-child {
     font-size: 0.6em;
     margin-top: 5px;

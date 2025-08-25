@@ -72,38 +72,20 @@
   overflow: hidden;
 }
 
-.gallery-slider {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  .gallery img {
+  width: 300px;       /* ίσο πλάτος */
+  height: 300px;      /* ίσο ύψος για τετράγωνο */
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  object-fit: cover;  /* κρατάει τις αναλογίες χωρίς να ζουλίγεται */
 }
-
-.slide {
-  min-width: 100%;  /* κάθε φωτο καταλαμβάνει όλο το πλάτος */
-  box-sizing: border-box;
-}
-
-.slide img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 10px;
-}
-
-/* Βελάκια */
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-.prev { left: 10px; }
-.next { right: 10px; }
   
   iframe {
     margin-top: 20px;
@@ -179,18 +161,14 @@
   <p>IBAN: GR00 0000 0000 0000 0000 0000</p>
 </section>
 
-<section class="gallery-container">
-  <button class="prev" onclick="moveSlide(-1)">❮</button>
-  
-  <div class="gallery-slider">
-    <div class="slide"><img src="baby1.jpg" alt="Baby photo 1"></div>
-    <div class="slide"><img src="baby2.jpg" alt="Baby photo 2"></div>
-    <div class="slide"><img src="baby3.jpg" alt="Baby photo 3"></div>
-    <div class="slide"><img src="baby4.jpg" alt="Baby photo 4"></div>
-    <div class="slide"><img src="baby5.jpg" alt="Baby photo 5"></div>
+<section>
+  <div class="gallery">
+    <img src="baby1.jpg" alt="Baby photo 1">
+    <img src="baby2.jpg" alt="Baby photo 2">
+    <img src="baby3.jpg" alt="Baby photo 3">
+    <img src="baby4.jpg" alt="Baby photo 4">
+	<img src="baby5.jpg" alt="Baby photo 5">
   </div>
-	
-  <button class="next" onclick="moveSlide(1)">❯</button>
 </section>
 
 
@@ -278,17 +256,7 @@ updateCountdown();
 setInterval(updateCountdown,1000);
 </script>
 
-<script>
-let currentSlide = 0;
 
-function moveSlide(direction) {
-  const slides = document.querySelectorAll(".slide");
-  const totalSlides = slides.length;
-  currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-  document.querySelector(".gallery-slider").style.transform =
-    `translateX(-${currentSlide * 100}%)`;
-}
-</script>
 
 </body>
 </html>

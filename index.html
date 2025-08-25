@@ -28,15 +28,6 @@
   h1 { font-size: 3em; }
   h2 { font-size: 2em; }
   p { font-size: 1.3em; }
-	
- #countdown {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* επιτρέπει να πάνε σε 2η γραμμή */
-  gap: 20px;
-  font-size: 2em;
-  margin-top: 30px;
-}
 
 #countdown div {
   display: flex;
@@ -44,15 +35,22 @@
   align-items: center;
   min-width: 80px;
 }
+	
+ /* Στυλ για την αντίστροφη μέτρηση */
+#countdown {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 2rem;  /* βασικό μέγεθος */
+  flex-wrap: nowrap; /* δεν σπάει σε γραμμές */
+  text-align: center;
+}
 
-/* Όταν η οθόνη είναι κάτω από 500px (π.χ. κινητά) */
-@media (max-width: 500px) {
+/* Όταν η οθόνη είναι μικρή */
+@media (max-width: 600px) {
   #countdown {
-    font-size: 1.2em; /* μικραίνει λίγο τα νούμερα */
-    gap: 10px;
-  }
-  #countdown div {
-    flex: 1 1 40%; /* βάζει 2 κουτάκια σε κάθε σειρά */
+    font-size: 1.2rem; /* μικρότερο μέγεθος για κινητά */
+    gap: 8px; /* μικρότερο κενό */
   }
 }
   #countdown span:last-child {

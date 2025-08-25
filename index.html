@@ -38,19 +38,23 @@
   margin-top: 30px;
 }
 
-#countdown div {
+/* Στυλ για την αντίστροφη μέτρηση */
+#countdown {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 80px;
+  justify-content: center;
+  gap: 20px;
+  font-size: 2rem;  /* βασικό μέγεθος */
+  flex-wrap: nowrap; /* δεν σπάει σε γραμμές */
+  text-align: center;
 }
 
-/* Όταν η οθόνη είναι κάτω από 500px (π.χ. κινητά) */
-@media (max-width: 500px) {
+/* Όταν η οθόνη είναι μικρή */
+@media (max-width: 600px) {
   #countdown {
-    font-size: 1.2em; /* μικραίνει λίγο τα νούμερα */
-    gap: 10px;
+    font-size: 1.2rem; /* μικρότερο μέγεθος για κινητά */
+    gap: 8px; /* μικρότερο κενό */
   }
+}
   #countdown div {
     flex: 1 1 40%; /* βάζει 2 κουτάκια σε κάθε σειρά */
   }

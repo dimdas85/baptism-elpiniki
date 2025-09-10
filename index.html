@@ -1,83 +1,90 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Η Βάφτιση της Ελπινίκης</title>
+<title>Το πάρτυ γενεθλίων της Ελπινίκης</title>
+<meta name="description" content="Πρόσκληση για το πάρτυ γενεθλίων της μικρής Ελπινίκης με θέμα την τσούχτρα του Bob Σφουγγαράκη, στην Αράχωβα το Σάββατο 20 Νοεμβρίου 2025 στις 19:00.">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
 <style>
   body {
     margin: 0;
     font-family: 'Noto Serif', 'Times New Roman', serif;
-    background: linear-gradient(to bottom, #d4fcd4, #fdf7e3); /* ίδιο φόντο με το header */
-    color: #2a7b2a;
+    background: linear-gradient(to bottom, #a8e6ff, #004e92); /* από γαλάζιο σε βαθύ μπλε */
+    color: #d63384; /* ροζ-μοβ σαν τσούχτρα */
     text-align: center;
+    position: relative;
+    overflow-x: hidden;
   }
+
   header {
     padding: 80px 20px;
   }
+
   header img {
     max-width: 250px;
     margin-bottom: 20px;
   }
+
   h1, h2, p, #countdown span {
-    color: #2a7b2a;
-    font-family: 'Noto Serif', 'Times New Roman', serif;
+    color: #d63384;
     margin: 10px 0;
   }
+
   h1 { font-size: 3em; }
   h2 { font-size: 2em; }
-  p { font-size: 1.3em; }
+  p { font-size: 1.3em; line-height: 1.6; }
 
-#countdown div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 80px;
-}
-	
- /* Στυλ για την αντίστροφη μέτρηση */
-#countdown {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  font-size: 2.5em;
-  margin-top: 30px;  
-  flex-wrap: nowrap; /* δεν σπάει σε γραμμές */
-  text-align: center;
-}
-
-/* Όταν η οθόνη είναι μικρή */
-@media (max-width: 600px) {
+  /* Αντίστροφη μέτρηση */
   #countdown {
-    font-size: 1.2rem; /* μικρότερο μέγεθος για κινητά */
-    gap: 8px; /* μικρότερο κενό */
-	margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    font-size: 2.5em;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    text-align: center;
   }
-}
+
+  #countdown div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+    background: rgba(255,192,203,0.2);
+    padding: 10px;
+    border-radius: 15px;
+  }
+
   #countdown span:last-child {
     font-size: 0.6em;
     margin-top: 5px;
   }
-	
+
+  @media (max-width: 600px) {
+    #countdown {
+      font-size: 1.2rem;
+      gap: 12px;
+      margin-top: 40px;
+    }
+  }
+
   section {
     padding: 40px 20px;
   }
-  .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
+
+  .highlight-box {
+    background-color: #ffb6c1; /* ροζ κουτάκι */
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 600px;
+    margin: 40px auto;
+    font-style: italic;
+    color: #4b0082; /* σκούρο μοβ για αντίθεση */
   }
-  .gallery img {
-  width: 300px;       /* ίσο πλάτος */
-  height: 300px;      /* ίσο ύψος για τετράγωνο */
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  object-fit: cover;  /* κρατάει τις αναλογίες χωρίς να ζουλίγεται */
-}
-  
+
   iframe {
     margin-top: 20px;
     border-radius: 15px;
@@ -86,15 +93,15 @@
     max-width: 500px;
     height: 300px;
   }
+
   footer {
     padding: 20px;
     margin-top: 30px;
   }
-  
-  section h2, section p {
-    color: #2a7b2a;
-    font-family: 'Noto Serif', 'Times New Roman', serif;
-    margin: 10px 0;
+
+  footer p {
+    font-size: 2em;
+    font-weight: bold;
   }
 
   .contact-icons {
@@ -105,125 +112,80 @@
   }
 
   .contact-icons a {
-    color: #2a7b2a;
+    color: #ff4da6;
     font-size: 2em;
     transition: transform 0.2s, color 0.2s;
   }
 
   .contact-icons a:hover {
     transform: scale(1.2);
-    color: #fb7185; /* λίγο ροζ όταν hover */
+    color: #b300b3;
+  }
+
+  /* Bubbles για εφέ */
+  .bubble {
+    position: absolute;
+    bottom: -100px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: rise 20s infinite ease-in;
+  }
+
+  @keyframes rise {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-120vh) scale(0.5); opacity: 0; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <img src="tinkerbell.svg" alt="Tinkerbell Vector">
-  <h1>Η Βάφτιση της Ελπινίκης</h1>
-  <p>Με χαρά σας προσκαλούμε στη βάφτιση της μικρής μας</p>
+  <img src="tsouxtra.jpg" alt="Ροζ τσούχτρα από τον Bob Σφουγγαράκη">
+  <h1>Το πάρτυ γενεθλίων της Ελπινίκης</h1>
   <div id="countdown"></div>
 </header>
 
-
-	
-<section style="background-color:#ffe4e6; padding:30px; border-radius:20px; max-width:600px; margin:40px auto;">
-  <p style="font-style: italic;">
-    Νεράιδες του παραμυθιού υφαίνουν το όνομα μου. . . <br>
-    Με νεραϊδόσκονη χρυσή σκεπάζουν τα όνειρά μου.<br>
-    Και ψιθυρίζοντας στο αυτάκι μου:<br>
-    "Θα λέγεσαι Ελπινίκη!"
+<section class="highlight-box">
+  <p>
+    Η μικρή μας Ελπινίκη γίνεται κιόλας 1 έτους, και σας προσκαλούμε να το γιορτάσουμε στη μαγευτική Αράχωβα!
   </p>
 </section>
 
 <section>
   <h2>Ημέρα & Ώρα</h2>
-  <p><b>Κυριακή 7 Σεπτεμβρίου 2025, 12:00 π.μ.</b></p>
-  <p><b>Ιερός Ναός Αγίας Παρασκευής Αχαρνών</b></p>
-  <p>Λεωφόρος Πάρνηθος 264 (ή Λεωφόρος Πάρνηθος & Αγίας Παρασκευής), Αχαρνές</p>
-  <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3139.4803790393216!2d23.732506711994795!3d38.105757192907255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzjCsDA2JzIwLjciTiAyM8KwNDQnMDYuMyJF!5e0!3m2!1sel!2sgr!4v1756071226303!5m2!1sel!2sgr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <p><b>Σάββατο 20 Νοεμβρίου 2025, 19:00 μ.μ.</b></p>
+  <p><b>Αράχωβα</b></p>  
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3123.296226124678!2d22.580998012795057!3d38.48080607105774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135f7da58a050109%3A0x400bd2ce2b98470!2zzpHPgc6sz4fPic6yzrEgMzIwIDA0!5e0!3m2!1sel!2sgr!4v1757538358781!5m2!1sel!2sgr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
-
-<section>
-  <p>Μετά το μυστήριο θα το γιορτάσουμε όλοι μαζί στο <b>ΑΡΧΟΝΤΙΚΟ Hall</b>, Λεωφόρος Πάρνηθος 399, Αχαρνές</p>
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3138.7080842944297!2d23.731100511995525!3d38.123725191864644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1a3499f29f569%3A0xd0b140de1ddf83f0!2zzpHPgc-Hzr_Ovc-EzrnOus-MIEhhbGwgzpTOtc6-zrnPjs-DzrXOuc-C!5e0!3m2!1sel!2sgr!4v1756039741453!5m2!1sel!2sgr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</section>
-
-<section style="background-color:#ffe4e6; padding:30px; border-radius:20px; max-width:600px; margin:40px auto;">
-  <h2>Προαιρετική λίστα βάπτισης</h2>
-  <p>Alpha Bank</p>
-  <p>IBAN: GR28 0171 0170 0060 1701 0379 131</p> 
-</section>
-
-<section>
-  <div class="gallery">
-    <img src="baby1.jpg" alt="Baby photo 1">
-    <img src="baby2.jpg" alt="Baby photo 2">
-    <img src="baby3.jpg" alt="Baby photo 3">
-    <img src="baby4.jpg" alt="Baby photo 4">
-	<img src="baby5.jpg" alt="Baby photo 5">
-  </div>
-</section>
-
-
-<section id="rsvp" style="padding:50px 20px; text-align:center;">
-  <h2 style="font-family: 'Noto Serif', 'Times New Roman', serif; color:#2a7b2a; font-size:2em; margin-bottom:15px;">Ενημερώστε μας αν θα παρευρεθείτε!</h2>
-  <form action="https://formspree.io/f/xovnawrp" method="POST" style="max-width:500px; margin:auto; display:flex; flex-direction:column; gap:15px;">
-    <input type="text" name="name" placeholder="To ονοματεπώνυμό μου" required style="padding:12px; border-radius:15px; border:2px solid #2a7b2a; font-family: 'Noto Serif', 'Times New Roman', serif;">
-    <input type="email" name="email" placeholder="Το Email μου" required style="padding:12px; border-radius:15px; border:2px solid #2a7b2a; font-family: 'Noto Serif', 'Times New Roman', serif;">
-    <input type="number" name="guests" placeholder="Αριθμός ατόμων" min="1" max="10" style="padding:12px; border-radius:15px; border:2px solid #2a7b2a; font-family: 'Noto Serif', 'Times New Roman', serif;">
-    <select name="attendance" style="padding:12px; border-radius:15px; border:2px solid #2a7b2a; font-family: 'Noto Serif', 'Times New Roman', serif;">
-      <option value="yes">Φυσικά και θα είμαι εκεί! &#x1F642</option>
-      <option value="maybe">Ίσως</option>
-      <option value="no">Δυστυχώς όχι &#x1F61E</option>
-    </select>
-    <textarea name="message" placeholder="Μήνυμα / Διατροφικές προτιμήσεις" rows="4" style="padding:12px; border-radius:15px; border:2px solid #2a7b2a; font-family: 'Noto Serif', 'Times New Roman', serif;"></textarea>
-    <button type="submit" style="padding:15px; border:none; border-radius:20px; background:#2a7b2a; color:#fff; font-family: 'Noto Serif', 'Times New Roman', serif;, cursive; font-weight:bold; cursor:pointer; font-size:1.1em;">Αποστολή</button>
-  </form>
-</section>
-
-
-
 
 <footer>
-  <p style="font-size:2em; font-weight:bold;">
-    Με αγάπη, η οικογένεια της Ελπινίκης και οι νονοί Εύα & Δημήτρης! 💚✨
-  </p>
+  <p>Με αγάπη, η οικογένεια και οι φίλοι της Ελπινίκης! 🪼💜✨</p>
 </footer>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 <section>
   <h2>Επικοινωνία</h2>
   <div class="contact-icons">
-    <!-- Τηλέφωνο -->
-    <a href="tel:+306982267310" title="Καλέστε τον Ρομπέρτο">
-      <i class="fas fa-phone"></i>
-    </a>
-    <!-- Email -->
-    <a href="mailto:robert_22_man@yahoo.gr" title="Στείλτε email στον Ρομπέρτο">
-      <i class="fas fa-envelope"></i>
-    </a>
-    <!-- Facebook -->
-    <a href="https://www.facebook.com/robert.drako" target="_blank" title="Facebook">
-      <i class="fab fa-facebook"></i>
-    </a>
-    <!-- Instagram -->
-    <a href="https://www.instagram.com/drakorobert/" target="_blank" title="Instagram">
-      <i class="fab fa-instagram"></i>
-    </a>
+    <a href="tel:+306982267310" title="Καλέστε τον Ρομπέρτο"><i class="fas fa-phone"></i></a>
+    <a href="mailto:robert_22_man@yahoo.gr" title="Στείλτε email στον Ρομπέρτο"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.facebook.com/robert.drako" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/drakorobert/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
   </div>
 </section>
 
-
+<!-- bubbles -->
+<div class="bubble" style="width:40px; height:40px; left:10%; animation-duration:18s;"></div>
+<div class="bubble" style="width:20px; height:20px; left:30%; animation-duration:22s;"></div>
+<div class="bubble" style="width:25px; height:25px; left:50%; animation-duration:20s;"></div>
+<div class="bubble" style="width:15px; height:15px; left:70%; animation-duration:25s;"></div>
+<div class="bubble" style="width:35px; height:35px; left:90%; animation-duration:30s;"></div>
 
 <script>
-const eventDate = new Date('2025-09-07T12:00:00');
+const eventDate = new Date('2025-11-20T19:00:00');
 function updateCountdown(){
   const now = new Date();
   const diff = eventDate - now;
   if(diff <= 0){ 
-    document.getElementById('countdown').textContent = 'Σήμερα βαφτίζομαι!'; 
+    document.getElementById('countdown').textContent = 'Σήμερα κάνω πάρτυ!'; 
     return; 
   }
   const d = Math.floor(diff/(1000*60*60*24));
